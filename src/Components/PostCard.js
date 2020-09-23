@@ -21,13 +21,13 @@ import {
 const styles = makeStyles((muiBaseTheme) => ({
   grid: {
     marginTop: "20px",
-    minHeight: "448px",
+    minHeight: "391px",
   },
   card: {
     maxWidth: 400,
     margin: "auto",
     transition: "0.3s",
-    minHeight: "448px",
+    minHeight: "391px",
     borderRadius: ".625rem!important",
     boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     "&:hover": {

@@ -32,12 +32,10 @@ class Slider extends React.Component {
         });
 
         this.setState({ itemRows: itemRows });
-        console.log(itemRows);
       });
   }
   render() {
     const { itemRows } = this.state;
-    console.log(itemRows);
 
     return (
       <Grid container spacing={1}>
