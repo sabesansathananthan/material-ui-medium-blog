@@ -24,7 +24,9 @@ const styles = makeStyles((muiBaseTheme) => ({
     minHeight: "391px",
   },
   card: {
-    maxWidth: 400,
+    minWidth: 400,
+    marginLeft: "15px",
+    marginRight: "15px",
     margin: "auto",
     transition: "0.3s",
     minHeight: "391px",
@@ -129,7 +131,7 @@ export default function MediumCard(props) {
     "," +
     " " +
     splitMonth[0];
-  console.log(finalDate);
+
   return (
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
