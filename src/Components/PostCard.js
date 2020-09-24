@@ -131,34 +131,52 @@ export default function MediumCard(props) {
     "," +
     " " +
     splitMonth[0];
+  const d = new Date();
 
   return (
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={props.thumbnail}>
-          <StyledBadge
-            overlap="circle"
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "right",
-            }}
-            variant="dot"
-            style={{
-              display: "inline-block",
-              alignItems: "center",
-              marginLeft: "1.5625rem",
-            }}
-          >
+          {d.getHours() > 5 && d.getHours() < 20 ? (
+            <StyledBadge
+              overlap="circle"
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              variant="dot"
+              style={{
+                display: "inline-block",
+                alignItems: "center",
+                marginLeft: "1.5625rem",
+              }}
+            >
+              <Avatar
+                alt="sabesan sathananthan"
+                className={classes.avatar}
+                src={props.avatar}
+                component="a"
+                varient="rounded"
+                href={props.profilelink}
+                target="_blank"
+              />
+            </StyledBadge>
+          ) : (
             <Avatar
               alt="sabesan sathananthan"
               className={classes.avatar}
               src={props.avatar}
               component="a"
+              style={{
+                display: "inline-block",
+                alignItems: "center",
+                marginLeft: "1.5625rem",
+              }}
               varient="rounded"
               href={props.profilelink}
               target="_blank"
             />
-          </StyledBadge>
+          )}
         </CardMedia>
         <CardContent
           className={classes.content}
