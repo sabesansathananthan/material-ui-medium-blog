@@ -24,7 +24,7 @@ const styles = makeStyles((muiBaseTheme) => ({
     minHeight: "391px",
   },
   card: {
-    minWidth: 400,
+    minWidth: 0,
     marginLeft: "15px",
     marginRight: "15px",
     margin: "auto",
