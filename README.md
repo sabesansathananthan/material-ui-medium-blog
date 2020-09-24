@@ -7,6 +7,18 @@
 
 ## UI
 
+#### Active Hours
+
+Active hours set as morning 5.00 am to night 8.00 pm. You could change the active hours in [`PostCard.js`](./src/Components/PostCard.js)
+
+```JavaScript
+{d.getHours() >= 5 && d.getHours() <= 20 ? (
+    //JSX Element
+):(
+    //JSX Element
+)}
+```
+
 Here is the UI for non active hours
 ![Image](./docs/post-non-active-hours.png)
 
