@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import PostCard from "./PostCard";
 
 // wrapper for items
@@ -13,7 +13,7 @@ class Slider extends React.Component {
 
   async componentDidMount() {
     await fetch(this.mediumURL)
-      .then((res) => res.json())
+      .then((res) => await res.json())
       .then((data) => {
         // create two-dimensional array with 3 elements per inner array
         const avatar = data.feed.image;
@@ -43,18 +43,6 @@ class Slider extends React.Component {
           row.map((item, key) => <PostCard {...item} />)
         )}
       </Grid>
-
-      //   <div className="blog__slider">
-      //     {this.state.itemRows.map((row, i) => (
-      //       <Row key={i}>
-      //         {row.map((item, j) => (
-      //           <Col key={j} lg="4" md="6" sm="12" className="mb-4">
-      //             <MediumCard {...item} />
-      //           </Col>
-      //         ))}
-      //       </Row>
-      //     ))}
-      //   </div>
     );
   }
 }
