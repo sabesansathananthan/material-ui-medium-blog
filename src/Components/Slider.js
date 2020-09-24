@@ -17,7 +17,6 @@ class Slider extends React.Component {
       .get(this.mediumURL)
       .then(async (res) => await res.data)
       .then((data) => {
-        console.log(data);
         // create two-dimensional array with 3 elements per inner array
         const avatar = data.feed.image;
         const profileLink = data.feed.link;
