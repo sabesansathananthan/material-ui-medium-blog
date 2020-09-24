@@ -43,7 +43,7 @@ class Slider extends React.Component {
     return (
       <Grid container spacing={1}>
         {itemRows.map((row, id) =>
-          row.map((item, key) => <PostCard {...item} />)
+          row.map((item, key) => <PostCard {...item} key={key} />)
         )}
       </Grid>
     );

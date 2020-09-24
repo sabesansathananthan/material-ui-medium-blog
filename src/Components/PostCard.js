@@ -105,17 +105,6 @@ const StyledBadge = withStyles((theme) => ({
 
 export default function MediumCard(props) {
   const classes = styles();
-  var shortMonthName = new Intl.DateTimeFormat("en-US", {
-    month: "short",
-  }).format;
-  let date = new Date(props.pubDate);
-  const publishDate =
-    shortMonthName(date) +
-    " " +
-    date.getDate() +
-    "," +
-    " " +
-    date.getFullYear();
   return (
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
@@ -194,7 +183,7 @@ export default function MediumCard(props) {
               }}
               gutterBottom
             >
-              <FontAwesomeIcon icon={faCalendarAlt} /> {publishDate}
+              <FontAwesomeIcon icon={faCalendarAlt} /> {props.pubDate}
             </Typography>
           </Grid>
         </CardActions>
