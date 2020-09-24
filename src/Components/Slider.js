@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import PostCard from "./PostCard";
+import axios from "axios";
 
 // wrapper for items
 class Slider extends React.Component {
@@ -12,9 +13,11 @@ class Slider extends React.Component {
     "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@Sabesan96";
 
   async componentDidMount() {
-    await fetch(this.mediumURL)
-      .then(async (res) => await res.json())
+    await axios
+      .get(this.mediumURL)
+      .then(async (res) => await res.data)
       .then((data) => {
+        console.log(data);
         // create two-dimensional array with 3 elements per inner array
         const avatar = data.feed.image;
         const profileLink = data.feed.link;
