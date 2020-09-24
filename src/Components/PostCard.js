@@ -117,7 +117,7 @@ export default function MediumCard(props) {
     " " +
     date.getFullYear();
   return (
-    <Grid xs={12} sm={12} lg={6} className={classes.grid}>
+    <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={props.thumbnail}>
           <StyledBadge
