@@ -137,7 +137,7 @@ export default function MediumCard(props) {
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={props.thumbnail}>
-          {d.getHours() > 5 && d.getHours() < 20 ? (
+          {d.getHours() >= 3 && d.getHours() <= 20 ? (
             <StyledBadge
               overlap="circle"
               anchorOrigin={{
