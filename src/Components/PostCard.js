@@ -115,7 +115,7 @@ export default function MediumCard(props) {
     "Jul",
     "Aug",
     "Sep",
-    "oct",
+    "Oct",
     "Nov",
     "Dec",
   ];
