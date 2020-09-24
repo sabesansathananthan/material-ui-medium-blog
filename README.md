@@ -11,7 +11,7 @@ Here is the UI for non active hours
 ![Image](./docs/post-non-active-hours.png)
 
 Here is the UI for active hours
-![Image](./docs/post-non-active-hours.png)
+![Image](./docs/post-active-hours.png)
 
 ## How to setup
 
