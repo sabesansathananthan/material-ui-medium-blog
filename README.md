@@ -25,6 +25,10 @@ Here is the UI for non active hours
 Here is the UI for active hours
 ![Image](./docs/post-active-hours.png)
 
+## Article
+
+This is the reference [article](https://medium.com/@sabesan96/embed-medium-as-a-blog-on-your-react-website-part-2-187db2b60a59) for this Application.
+
 ## How to setup
 
 Read this [documentation](./docs/SETUP.md)📝
