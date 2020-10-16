@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Toggle from 'react-toggle'
-import { BsMoon } from "react-icons/bs";
-import { BsSun } from "react-icons/bs";
+// import Toggle from 'react-toggle'
+// import { BsMoon } from "react-icons/bs";
+// import { BsSun } from "react-icons/bs";
 
 const DARK_CLASS = "dark";
 
@@ -35,17 +35,18 @@ const DarkToggle = () => {
      }, [isDark]);
 
   return (
-
-    <Toggle 
+      <label className="switch">
+        <p>DARK MODE</p>
+        <input type="checkbox" 
+        checked={isDark}
         className="DarkToggle"
         onChange={event => {
           setIsDark(event.target.checked)
           localStorage.setItem('prevState', event.target.checked)
         }}
-        checked={isDark}
-        icons={{checked: <BsMoon color="white" />, unchecked: <BsSun color="yellow"/>}}
-        aria-label="Dark mode"
-    />
+        ></input>
+        <span class="slider round"></span>
+      </label>
   );
 };
 export default DarkToggle;
