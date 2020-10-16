@@ -1,0 +1,204 @@
+body{
+    margin: 0;
+    padding-bottom: 100px;
+}
+#Page{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.Author{
+    color: #212529;
+}
+.date{
+    color: #868e96,
+}
+
+.NavBar {
+    padding: 0.2% 7%;
+    margin: 0%;
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-grid-columns: 15fr 1fr;
+    grid-template-columns: 15fr 1fr;
+    -webkit-box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    color: #7654ff;
+    border-bottom: 2px solid #7654ff;
+}
+
+.react-toggle {
+  touch-action: pan-x;
+
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-toggle-screenreader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.react-toggle--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.react-toggle-track {
+  display: flex;
+  width: 50px;
+  height: 24px;
+  padding: 0;
+  border-radius: 30px;
+  background-color: #4D4D4D;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #0c3b79;
+}
+
+.react-toggle .react-toggle-track {
+  background-color: #2f7df1;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: #100449;
+}
+
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #080322;
+}
+
+.react-toggle-track-check {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0px;
+  bottom: 3.5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  left: 8px;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-track-check {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle-track-x {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0px;
+  bottom: 3.5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  left: 30px;
+  line-height: 0;
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-track-x {
+  opacity: 0;
+}
+
+.react-toggle-thumb {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #4D4D4D;
+  border-radius: 50%;
+  background-color: #4D4D4D;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  left: 27px;
+  border-color: #33a1cc;
+}
+
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
+  -moz-box-shadow: 0px 0px 5px 5px #0099E0;
+  box-shadow: 0px 0px 5px 5px #0099E0;
+}
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
+  -moz-box-shadow: 0px 0px 5px 5px #0099E0;
+  box-shadow: 0px 0px 5px 5px #0099E0;
+}
+
+.dark .NavBar{
+    background-color: #020a27;
+    -webkit-box-shadow: 0px 0px 20px -8px rgba(47, 98, 240, 0.822);
+    box-shadow: 0px 0px 20px -8px rgba(47, 98, 240, 0.822);
+}
+
+.dark body{
+    background-color: #0e1e5a;
+}
+.dark .makeStyles-card-2{
+    background-color: #020a27;
+}
+
+.dark .MuiTypography-body1,.dark .MuiTypography-displayBlock{
+    color: white;
+}
+
+.dark .MuiTypography-colorPrimary{
+    color: #523aaf;
+}
+.dark .icon{
+    color: #2f7df1;
+}
+
+.dark .Author{
+    color: #2f7df1;
+}
