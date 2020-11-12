@@ -1,0 +1,133 @@
+body{
+    margin: 0;
+    padding-bottom: 100px;
+}
+#Page{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.Author{
+    color: #212529;
+}
+.date{
+    color: #868e96,
+}
+
+.NavBar {
+    padding: 0.2% 7%;
+    margin: 0%;
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-grid-columns: 10fr 1fr;
+    grid-template-columns: 10fr 1fr;
+    -webkit-box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    color: #7654ff;
+    border-bottom: 2px solid #7654ff;
+}
+
+.NavBar h1{
+    font-size: 3.5vmin;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 5vw;
+    height: 3vw;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: relative;
+    bottom: 80px;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 2.5vw;
+    width: 2.5vw;
+    left: 0.3vw;
+    bottom: 0.2vw;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(2vw);
+    -ms-transform: translateX(2vw);
+    transform: translateX(2vw);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .switch p{
+      position: relative;
+      width: max-content;
+      font-size:1.5vw;
+      font-family: monospace;
+      font-weight: bolder;
+      right: 9vw;
+      bottom:1vw;
+    }
+
+.dark .NavBar{
+    background-color: #020a27;
+    -webkit-box-shadow: 0px 0px 20px -8px rgba(47, 98, 240, 0.822);
+    box-shadow: 0px 0px 20px -8px rgba(47, 98, 240, 0.822);
+}
+
+.dark body{
+    background-color: #0e1e5a;
+}
+.dark .makeStyles-card-2{
+    background-color: #020a27;
+}
+
+.dark .MuiTypography-body1,.dark .MuiTypography-displayBlock{
+    color: white;
+}
+
+.dark .MuiTypography-colorPrimary{
+    color: #523aaf;
+}
+.dark .icon{
+    color: #2f7df1;
+}
+
+.dark .Author{
+    color: #2f7df1;
+}

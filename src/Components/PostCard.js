@@ -208,22 +208,22 @@ export default function MediumCard(props) {
             <Typography
               style={{
                 fontSize: "14px",
-                color: "#212529",
               }}
+              className="Author"
               display="block"
               variant="body1"
               gutterBottom
             >
-              <FontAwesomeIcon icon={faUser} /> {props.author}
+              <FontAwesomeIcon icon={faUser } className="icon"/> {props.author}
             </Typography>
           </Grid>
           <Grid>
             <Typography
               display="block"
               variant="body1"
+              className="date"
               style={{
                 fontSize: "14px",
-                color: "#868e96",
                 display: "inline-block",
               }}
               gutterBottom
