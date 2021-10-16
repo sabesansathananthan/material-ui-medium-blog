@@ -131,13 +131,21 @@ export default function MediumCard(props) {
     "," +
     " " +
     splitMonth[0];
-  const d = new Date();
+
+  const currentTime = new Date();
+  const currentOffset = currentTime.getTimezoneOffset();
+  const ISTOffset = 330; // IST offset UTC +5:30
+  const ISTTime = new Date(
+    currentTime.getTime() + (ISTOffset + currentOffset) * 60000
+  );
+
+  const isOnline = ISTTime.getHours() >= 5 && ISTTime.getHours() <= 20;
 
   return (
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={props.thumbnail}>
-          {d.getHours() >= 5 && d.getHours() <= 20 ? (
+          {isOnline ? (
             <StyledBadge
               overlap="circle"
               anchorOrigin={{
