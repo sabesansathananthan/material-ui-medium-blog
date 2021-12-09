@@ -222,7 +222,7 @@ export default function MediumCard(props) {
               variant="body1"
               gutterBottom
             >
-              <FontAwesomeIcon icon={faUser} /> {props.author}
+              <i class="fad fa-user-edit"></i> {props.author}
             </Typography>
           </Grid>
           <Grid>
@@ -236,7 +236,8 @@ export default function MediumCard(props) {
               }}
               gutterBottom
             >
-              <FontAwesomeIcon icon={faCalendarAlt} /> {finalDate}
+              <i class="fad fa-calendar-edit" aria-hidden="true"></i>{" "}
+              {finalDate}
             </Typography>
           </Grid>
         </CardActions>
