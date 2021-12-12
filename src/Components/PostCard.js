@@ -1,8 +1,6 @@
 import React from "react";
 import ShortenText from "../utils/ShortenText";
 import ToText from "../utils/ToText";
-import { faUser, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   makeStyles,
   Avatar,
@@ -16,7 +14,9 @@ import {
   Link,
   CardActions,
   Divider,
+  Chip,
 } from "@material-ui/core";
+import colors from "../utils/colors.json";
 
 const styles = makeStyles((muiBaseTheme) => ({
   grid: {
@@ -105,8 +105,19 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
+const styledChip = makeStyles((muiBaseTheme) => ({
+  chip: {
+    color: "#FFFFFF",
+    top: "0.9375rem",
+    right: "0.9375rem",
+    position: "absolute",
+    textTransform: "uppercase",
+  },
+}));
+
 export default function MediumCard(props) {
   const classes = styles();
+  const chipClasses = styledChip();
   const monthShortname = [
     "Jan",
     "Feb",
@@ -145,6 +156,12 @@ export default function MediumCard(props) {
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={props.thumbnail}>
+          <Chip
+            className={chipClasses.chip}
+            label={props.tag}
+            size="small"
+            style={{ backgroundColor: colors[props.tagNo] }}
+          />
           {isOnline ? (
             <StyledBadge
               overlap="circle"
@@ -222,7 +239,7 @@ export default function MediumCard(props) {
               variant="body1"
               gutterBottom
             >
-              <FontAwesomeIcon icon={faUser} /> {props.author}
+              <i class="fad fa-user-edit"></i> {props.author}
             </Typography>
           </Grid>
           <Grid>
@@ -236,7 +253,8 @@ export default function MediumCard(props) {
               }}
               gutterBottom
             >
-              <FontAwesomeIcon icon={faCalendarAlt} /> {finalDate}
+              <i class="fad fa-calendar-edit" aria-hidden="true"></i>{" "}
+              {finalDate}
             </Typography>
           </Grid>
         </CardActions>
