@@ -2,118 +2,88 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import PostCard from "./PostCard";
 import axios from "axios";
+import sortAndSetCategory from "../utils/SortAndSetCategeory";
 
 // wrapper for items
 const Slider = () => {
   const [itemRows, setItemRows] = useState([]);
-  const [avatar, setAvatar] = useState("");
-  const [profileLink, setProfileLink] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const mediumURL =
     "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sabesan96";
 
   useEffect(() => {
     async function fetchPostDetails() {
-      await axios.get(mediumURL).then((response) => {
-        // create two-dimensional array with 3 elements per inner array
-        const { data } = response;
-        const avatarImg = data?.feed?.image;
-        const profile = data.feed.link;
-        const items = data.items; //This is an array with the content. No feed, no info about author etc..
-        const posts = items.filter((item) => item.categories.length > 0);
-        setAvatar(avatarImg);
-        setProfileLink(profile);
-        const blogs = [];
-        posts.forEach((item, i) => {
-          item["avatar"] = avatarImg; // push avatar inside the json
-          item["profileLink"] = profile; // push profile link inside the JSON
-          blogs.push(item);
-        });
-        const tagArrays = blogs.map((item) => {
-          return item.categories;
-        });
+      await axios
+        .get(mediumURL)
+        .then((response) => {
+          const {
+            feed: { image, link },
+            items,
+          } = response?.data || {};
 
-        const allTags = tagArrays.flat();
+          const posts = items.filter((item) => item?.categories?.length > 0);
 
-        const allTagsWithCount = allTags.reduce(function (
-          tagsWithCount,
-          currentTag
-        ) {
-          tagsWithCount[currentTag] = (tagsWithCount[currentTag] || 0) + 1; //increment the number of counts of a tag
-          return tagsWithCount;
-        },
-        {});
+          const tagArrays = posts.map((item) => {
+            return item.categories;
+          });
 
-        //sort the tag(key) according its count
-        const sortedTagsArray = Object.keys(allTagsWithCount).sort(function (
-          a,
-          b
-        ) {
-          return allTagsWithCount[b] - allTagsWithCount[a];
-        });
+          const allTags = tagArrays.flat();
 
-        const tagArticle = [];
-        let removedBlogs = blogs;
+          const sortedTagsArray = sortAndSetCategory(allTags) || [];
 
-        for (let i = 0; i < sortedTagsArray.length; ++i) {
-          const blogsWithTag = removedBlogs.filter((blog) =>
-            blog.categories.includes(sortedTagsArray[i])
-          ); //filter
+          const tagArticle = [];
+          let removedBlogs = posts;
 
-          removedBlogs = removedBlogs.filter(
-            (blog) => blogsWithTag.indexOf(blog) == -1
-          ); //exclude
+          for (let i = 0; i < sortedTagsArray.length; ++i) {
+            const blogsWithTag = removedBlogs.filter((blog) =>
+              blog.categories.includes(sortedTagsArray[i])
+            ); //filter
 
-          if (blogsWithTag.length > 0) {
-            blogsWithTag.forEach((item) => {
-              item[`tag`] = sortedTagsArray[i];
-              tagArticle.push(item);
-            });
+            removedBlogs = removedBlogs.filter(
+              (blog) => blogsWithTag.indexOf(blog) === -1
+            ); //exclude
+
+            if (blogsWithTag.length > 0) {
+              blogsWithTag.forEach((item) => {
+                item.tag = sortedTagsArray[i];
+                tagArticle.push(item);
+              });
+            }
           }
-        }
 
-        const filteredTagArrays = tagArticle.map((item) => {
-          return item.tag;
-        });
+          const filteredTagArrays = tagArticle.map((item) => {
+            return item.tag;
+          });
 
-        const filteredAllTagsWithCount = filteredTagArrays.reduce(
-          (tagsWithCount, currentTag) => {
-            tagsWithCount[currentTag] = (tagsWithCount[currentTag] || 0) + 1; //increment the number of counts of a tag
-            return tagsWithCount;
-          },
-          {}
-        );
+          const filteredSortedTagsArray =
+            sortAndSetCategory(filteredTagArrays) || [];
 
-        //sort the tag(key) according its count
-        const filteredSortedTagsArray = Object.keys(
-          filteredAllTagsWithCount
-        ).sort(function (a, b) {
-          return filteredAllTagsWithCount[b] - filteredAllTagsWithCount[a];
-        });
+          tagArticle.forEach((item) => {
+            item.tagNo = filteredSortedTagsArray.indexOf(item.tag) + 1;
+            item.avatar = image; // push avatar inside the json
+            item.profileLink = link; // push profile link inside the JSON
+          });
 
-        tagArticle.forEach((item) => {
-          item.tagNo = filteredSortedTagsArray.indexOf(item.tag) + 1;
-        });
+          const tagArticleWithRow = [];
 
-        const tagArticleWithRow = [];
+          tagArticle.forEach((item, i) => {
+            const row = Math.floor(i / 3);
+            if (!tagArticleWithRow[row]) tagArticleWithRow[row] = [];
+            tagArticleWithRow[row].push(item);
+          });
 
-        tagArticle.forEach((item, i) => {
-          const row = Math.floor(i / 3);
-          if (!tagArticleWithRow[row]) tagArticleWithRow[row] = [];
-          tagArticleWithRow[row].push(item);
-        });
-
-        setItemRows(tagArticleWithRow);
-        setLoading(true);
-      });
+          setItemRows(tagArticleWithRow);
+          setLoading(false);
+        })
+        .catch((err) => console.log(err));
     }
     fetchPostDetails();
   }, []);
 
   return (
     <Grid container spacing={1}>
-      {loading &&
+      {!loading &&
         itemRows.length > 0 &&
         itemRows.map((row, id) =>
           row.map((item, key) => <PostCard {...item} key={key} />)

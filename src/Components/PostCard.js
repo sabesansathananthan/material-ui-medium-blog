@@ -132,7 +132,7 @@ export default function MediumCard(props) {
     "Nov",
     "Dec",
   ];
-  const splitDate = props.pubDate.split(" ");
+  const splitDate = props?.pubDate.split(" ");
   const date = splitDate[0];
   const splitMonth = date.split("-");
   const finalDate =
@@ -155,12 +155,12 @@ export default function MediumCard(props) {
   return (
     <Grid xs={12} sm={12} lg={4} className={classes.grid}>
       <Card className={classes.card}>
-        <CardMedia className={classes.media} image={props.thumbnail}>
+        <CardMedia className={classes.media} image={props?.thumbnail}>
           <Chip
             className={chipClasses.chip}
-            label={props.tag}
+            label={props?.tag}
             size="small"
-            style={{ backgroundColor: colors[props.tagNo] }}
+            style={{ backgroundColor: colors[props?.tagNo] }}
           />
           {isOnline ? (
             <StyledBadge
@@ -179,10 +179,10 @@ export default function MediumCard(props) {
               <Avatar
                 alt="sabesan sathananthan"
                 className={classes.avatar}
-                src={props.avatar}
+                src={props?.avatar}
                 component="a"
                 varient="rounded"
-                href={props.profilelink}
+                href={props?.profilelink}
                 target="_blank"
               />
             </StyledBadge>
@@ -190,7 +190,7 @@ export default function MediumCard(props) {
             <Avatar
               alt="sabesan sathananthan"
               className={classes.avatar}
-              src={props.avatar}
+              src={props?.avatar}
               component="a"
               style={{
                 display: "inline-block",
@@ -198,7 +198,7 @@ export default function MediumCard(props) {
                 marginLeft: "1.5625rem",
               }}
               varient="rounded"
-              href={props.profilelink}
+              href={props?.profilelink}
               target="_blank"
             />
           )}
@@ -213,16 +213,16 @@ export default function MediumCard(props) {
         >
           <Typography className={classes.heading} variant={"h5"} gutterBottom>
             <Link
-              href={props.link}
+              href={props?.link}
               target="_blank"
               rel="noopener noreferrer"
               underline="none"
             >
-              {ShortenText(props.title, 0, 75)}
+              {ShortenText(props?.title, 0, 75)}
             </Link>
           </Typography>
           <Typography className={classes.subheading} variant="body1">
-            {ShortenText(ToText(props.content), 0, 120) + "..."}
+            {ShortenText(ToText(props?.content), 0, 120) + "..."}
           </Typography>
         </CardContent>
         <Divider className={classes.divider} />
@@ -239,7 +239,7 @@ export default function MediumCard(props) {
               variant="body1"
               gutterBottom
             >
-              <i class="fad fa-user-edit"></i> {props.author}
+              <i class="fad fa-user-edit"></i> {props?.author}
             </Typography>
           </Grid>
           <Grid>
