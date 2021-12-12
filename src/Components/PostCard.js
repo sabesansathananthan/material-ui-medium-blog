@@ -239,7 +239,16 @@ export default function MediumCard(props) {
               variant="body1"
               gutterBottom
             >
-              <i class="fad fa-user-edit"></i> {props?.author}
+              <i
+                className="fad fa-user-edit"
+                style={{
+                  fontSize: "20px",
+                  "--fa-primary-color": "mediumpurple",
+                  "--fa-secondary-color": "orange",
+                  "--fa-secondary-opacity": "1.0",
+                }}
+              ></i>{" "}
+              {props?.author}
             </Typography>
           </Grid>
           <Grid>
@@ -253,7 +262,14 @@ export default function MediumCard(props) {
               }}
               gutterBottom
             >
-              <i class="fad fa-calendar-edit" aria-hidden="true"></i>{" "}
+              <i
+                className="fad fa-calendar-alt"
+                style={{
+                  fontSize: "20px",
+                  "--fa-primary-color": "red",
+                  "--fa-secondary-color": "dimgray",
+                }}
+              ></i>{" "}
               {finalDate}
             </Typography>
           </Grid>
